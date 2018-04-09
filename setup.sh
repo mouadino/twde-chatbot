@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+VENV=true
+DOCS_DEPS=false
+
+usage() { echo "Usage: $0 [--no-venv] [--doc-deps]" 1>&2;
+          echo "Options:"
+          echo "	--no-venv   Install packages globally. May need root privileges."
+          echo "	--doc-deps  Includes dependencies to generate docs (ie. Sphinx)."
+          exit 1; }
+
+while getopts "h-:" opt; do
+  case $opt in
+    -)
+      case $OPTARG in
+        no-venv)
+            VENV=false
+            ;;
+        doc-deps)
+            DOCS_DEPS=true
+            ;;
+        *)
+            echo "Invalid option: $OPTARG" >&2
+            usage
+            ;;
+      esac
+      ;;
+    h)
+      usage
+      ;;
+    *)
+      echo "Invalid option: -$OPTARG" >&2
+      usage
+      ;;
+  esac
+done
+
+useVirtualEnv() {
+  echo -e "\e[1mPreparing VirtualEnv\e[0m"
+  python3 -m pip install --user virtualenv
+  python3 -m virtualenv -p python3 venv
+  source venv/bin/activate
+  python -m spacy download en_core_web_md
+  python -m spacy link en_core_web_md en
+}
+
+python3 get-pip.py --user
+
+if $VENV; then
+  useVirtualEnv
+else
+  echo -e "\e[1m\e[31mInstalling packages globally. This may need root privileges.\e[0m"
+fi
+
+python3 -m pip install -r requirements.txt
+
+if ${DOCS_DEPS}; then
+    echo -e "\e[1mInstalling dependencies for docs\e[0m"
+    python3 -m pip install -r docs/requirements.txt
+fi
