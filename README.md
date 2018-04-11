@@ -1,6 +1,9 @@
 # Chatbot
 This chatbot uses [Rasa](http://rasa.com/).
 
+## Documentation
+Right now the documentation only contains interesting links to get started with [docs](https://github.com/ThoughtWorksInc/twde-chatbot/tree/master/docs)
+
 ## Installation
 Run the setup script:
 ```bash
