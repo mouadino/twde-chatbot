@@ -24,6 +24,7 @@
 * [Tensorflow Github](https://www.tensorflow.org/)
 * [Tensorflow](https://github.com/tensorflow)
 * [Amazon Lex](https://aws.amazon.com/de/lex/)
+* [Chatbase - Chatbot analytics](https://chatbase.com)
 
 ## NLP datasets
 [Collection of datasets](https://github.com/niderhoff/nlp-datasets)
