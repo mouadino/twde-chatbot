@@ -1,0 +1,1 @@
+web: ./chatbot/cli/train.py && gunicorn chatbot.cli.google_chat_api:app

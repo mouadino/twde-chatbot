@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+rasa = "*"
+rasa_core = "*"
+sklearn_crfsuite = "*"
+spacy = "*" 
+Flask = "*"
+gunicorn = "*"
+
+[dev-packages]
+chatbot = {path = ".", editable = true}
+
+[requires]
+python_version = "3.6"
