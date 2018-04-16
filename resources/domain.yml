@@ -1,19 +1,18 @@
 intents:
   - greet
   - goodbye
-  - days_total
-  - days_left
-  - take_vacation
-  - cancel_last_vacation
   - joke
-
-action_factory: remote
 
 actions:
 - utter_greet
-- say_days_total
-- say_days_left
-- act_take_vacation
-- act_cancel_last_vacation
 - utter_goodbye
 - utter_joke
+
+templates:
+  utter_greet:
+    - "hey there!"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+  utter_joke:
+    - "Knock knock"

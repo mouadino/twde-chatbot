@@ -5,35 +5,39 @@ This chatbot uses [Rasa](http://rasa.com/).
 Right now the documentation only contains interesting links to get started with [docs](https://github.com/ThoughtWorksInc/twde-chatbot/tree/master/docs)
 
 ## Installation
-Run the setup script:
-```bash
-./setup.sh
-```
 
-Additionally you might want to set your locales (in most cases not needed):
+### Prerequisite
+
+Make sure that:
+
+- You have python3.
+- [pipenv](https://docs.pipenv.org/) is installed.
+- Language setup correctly to english
 ```
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```
 
-## Run
-Switch to the previously installed virtual environment:
-```bash
-source venv/bin/activate
-```
+### Install
 
-Then just run the run.py in your virtual environment:  
-```bash
-python run.py
-```
+To install all dependencies execute:
 
-This will expose the server on port _5005_
+```
+pipenv install --dev
+```
 
 ## Play
-Post request `curl -XPOST localhost:5005/conversations/default/parse -d '{"query":"greet"}'` <br/>
 
-## Tests
-Tests can be executed with:
-```bash
-./run-tests.sh
+First you need to train the bot, to do that execute:
+
 ```
+pipenv run chatbot/cli/train.py
+```
+
+Then to start the bot, there is multiple ways:
+
+- In the console: ```pipenv run chatbot/cli/console.py```
+- As a google chat api: ```pipenv run chatbot/cli/google_chat_api.py```
+- As a google chat api using Heroku: ```pipenv run heroku local```
+
+
