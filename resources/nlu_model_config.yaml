@@ -1,0 +1,5 @@
+pipeline:
+  - name: "nlp_spacy"
+    model: "en_core_web_md"
+path: "./resources/models/nlu"
+data: "./resources/data/nlu.md"

@@ -4,15 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-rasa = "*"
+rasa_nlu = "==0.12.0a2"
 rasa_core = "*"
 sklearn_crfsuite = "*"
 spacy = "*" 
 Flask = "*"
 gunicorn = "*"
+en = {file = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-1.2.0/en_core_web_md-1.2.0.tar.gz"}
 
 [dev-packages]
 pytest = "*"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true

@@ -44,4 +44,3 @@ Then to start the bot, there is multiple ways:
 ````bash
 pipenv run pytest
 ````
-
