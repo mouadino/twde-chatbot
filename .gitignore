@@ -108,3 +108,5 @@ venv.bak/
 resources/models/*
 .idea
 *.iml
+resources/live-config.json
+resources/staging-config.json
