@@ -40,4 +40,8 @@ Then to start the bot, there is multiple ways:
 - As a google chat api: ```pipenv run chatbot/cli/google_chat_api.py```
 - As a google chat api using Heroku: ```pipenv run heroku local```
 
+## Test
+````bash
+pipenv run pytest
+````
 
