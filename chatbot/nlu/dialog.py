@@ -1,7 +1,11 @@
-from rasa_core.agent import Agent
-from chatbot.config import Config
-from rasa_core.train import train_dialogue_model
 import logging
+
+from rasa_core.agent import Agent
+from rasa_core.policies.keras_policy import KerasPolicy
+from rasa_core.policies.memoization import MemoizationPolicy
+from rasa_core.train import train_dialogue_model
+
+from chatbot.config import Config
 
 logger = logging.getLogger(__name__)
 
@@ -24,3 +28,17 @@ def train_dialog():
     conf = Config()
     train_dialogue_model(conf.get_value('domain-file'), conf.get_value('stories-file'),
                          conf.get_value('dialog-model-path'))
+
+
+def train_dialog_online(intent_classificator, input_channel):
+    conf = Config()
+    agent = Agent(conf.get_value('domain-file'), policies=[MemoizationPolicy(), KerasPolicy()],
+                  interpreter=intent_classificator)
+
+    agent.train_online(conf.get_value('stories-file'),
+                       input_channel=input_channel,
+                       max_history=conf.get_value('dialog-model-max-history'),
+                       batch_size=conf.get_value('dialog-model-batch-size'),
+                       epochs=conf.get_value('dialog-model-epochs'),
+                       max_training_samples=conf.get_value('dialog-model-max-training-samples'))
+    return agent

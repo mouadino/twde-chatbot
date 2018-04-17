@@ -8,5 +8,9 @@
   "nlu-training-data-path": "resources/data/nlu.md",
   "models-directory": "resources/models/",
   "domain-file": "resources/domain.yml",
-  "stories-file": "resources/data/stories.md"
+  "stories-file": "resources/data/stories.md",
+  "dialog-model-max-history": 2,
+  "dialog-model-batch-size": 15,
+  "dialog-model-epochs": 100,
+  "dialog-model-max-training-samples": 300
 }
