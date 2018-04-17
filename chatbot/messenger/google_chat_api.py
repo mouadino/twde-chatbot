@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import logging
-import os
 
 from flask import Flask, request, json, abort
+
 from chatbot import config
 from chatbot import core
 
@@ -50,12 +50,3 @@ def on_event():
         return format_message(core.handle_input(event['message']['text']))
     else:
         abort(400)
-
-
-def run():
-    port = os.environ.get('PORT', 8080)
-    app.run(port=port, debug=True)
-
-
-if __name__ == '__main__':
-    run()
