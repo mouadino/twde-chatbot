@@ -1,9 +1,13 @@
 from rasa_core.agent import Agent
 from chatbot.config import Config
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def load_agent(intent_classificator):
     conf = Config()
+    logger.info('loading context model from: %s', conf.get_value('dialog-model-path'))
     return Agent.load(conf.get_value('dialog-model-path'), interpreter=intent_classificator)
 
 
