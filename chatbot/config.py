@@ -19,7 +19,7 @@ class Config(object):
         self.__dict__ = self._state
 
     def get_value(self, name):
-        if (os.getenv(name)):
+        if os.getenv(name):
             return os.getenv(name)
         else:
             return self._state[name]
