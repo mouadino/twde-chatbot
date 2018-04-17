@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ThoughtWorksInc/twde-chatbot.svg?style=svg)](https://circleci.com/gh/ThoughtWorksInc/twde-chatbot)
+
 # Chatbot
 This chatbot uses [Rasa](http://rasa.com/).
 
