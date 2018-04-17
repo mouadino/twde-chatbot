@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 from rasa_core.channels.console import ConsoleInputChannel
-
-from chatbot import core
+from chatbot.nlu import dialog, intent_classificator
 
 
 def run():
-    agent = core.get_agent()
+    classificator = intent_classificator.load_classificator()
+    agent = dialog.load_agent(classificator)
     agent.handle_channel(ConsoleInputChannel())
 
 
