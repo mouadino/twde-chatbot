@@ -1,18 +1,50 @@
 intents:
-  - greet
-  - goodbye
-  - joke
+- greet
+- leave_annual_total
+- leave_annual_left
+- leave_annual_planned
+- leave_annual_cancel
+- public_holidays
+- confirm
+- deny
 
 actions:
 - utter_greet
-- utter_goodbye
-- utter_joke
+- utter_leave_annual_total
+- utter_leave_annual_left
+- utter_leave_annual_planned
+- utter_leave_annual_planned_list
+- utter_leave_annual_cancel
+- utter_public_holidays
+- utter_confirm
+- utter_deny
 
 templates:
+  utter_welcome:
+    - text: "Hey there! I'm Balu."
+      text: "I'm currently getting build to support you to book your annual leave."
+      text: "My set of skills is still small, but you can already ask me about your total leave days for this year, what leaves you have planned, how many leaves you have already taken and what the next public holidays are."
   utter_greet:
-    - "hey there!"
-  utter_goodbye:
-    - "goodbye :("
-    - "Bye-bye"
-  utter_joke:
-    - "Knock knock"
+    - text: "Welcome back! What can I do for you?"
+    - text: "Hey there! How can I help you?"
+  utter_leave_annual_total:
+    - text: "You have 28 leave days for 2018"
+  utter_leave_annual_left:
+    - text: "annual left"
+  utter_leave_annual_planned:
+    - text: "You have 6 days planned. Would you like to see the list of your upcoming leaves?"
+  utter_leave_annual_planned_list:
+    - text: "These are your planned vacations:"
+      buttons:
+      - title: "vacation 1"
+        payload: "vacation_1"
+      - title: "vacation 2"
+        payload: "vacation_2"
+  utter_leave_annual_cancel:
+    - text: "which one would you like to cancel?"
+  utter_public_holidays:
+    - text: "next public holiday is on may 1"
+  utter_confirm:
+    - text: "on it"
+  utter_deny:
+    - text: "Alright then. Anything else I can help you with?"
