@@ -1,5 +1,6 @@
 from rasa_core.agent import Agent
 from chatbot.config import Config
+from rasa_core.train import train_dialogue_model
 import logging
 
 logger = logging.getLogger(__name__)
@@ -15,5 +16,11 @@ def handle_message_input(context_agent, user_input):
     responses = context_agent.handle_message(user_input)
 
     # FIXME: We chose the first one, not the best heuristic.
-    # FIXME: Harcoded fallback message.
+    # FIXME: Hardcoded fallback message.
     return responses[0] if responses else 'Sorry I cannot understand!'
+
+
+def train_dialog():
+    conf = Config()
+    train_dialogue_model(conf.get_value('domain-file'), conf.get_value('stories-file'),
+                         conf.get_value('dialog-model-path'))

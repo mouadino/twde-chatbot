@@ -2,5 +2,11 @@
   "HANGOUTS_API_KEY": "secret-api-key",
   "MESSENGER_ENDPOINT": "endpoint",
   "classification-model-path": "resources/models/default/current",
-  "dialog-model-path": "resources/models/dialogue"
+  "dialog-model-path": "resources/models/dialogue",
+  "nlu-config-file-path": "resources/nlu_model_config.json",
+  "nlu-training-data-path": "resources/data/nlu.md",
+  "models-directory": "resources/models/",
+  "classificator-model-name": "current",
+  "domain-file": "resources/domain.yml",
+  "stories-file": "resources/data/stories.md"
 }
