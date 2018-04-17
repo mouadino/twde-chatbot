@@ -31,7 +31,8 @@ with google_chat_api.app.test_client() as client:
 
 
     def test_sending_valid_token(mocker):
-        mocked_function = mocker.patch('chatbot.core.handle_input')
+        mocker.patch('chatbot.messenger.google_chat_api.get_agent')
+        mocked_function = mocker.patch('chatbot.nlu.context.handle_message_input')
         mocked_function.return_value = "I was called"
         response = client.post('/endpoint', data=json.dumps(dict(token='secret-api-key',
                                                                  space='some space',
