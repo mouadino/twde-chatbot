@@ -35,13 +35,10 @@ pipenv run python -m spacy download en_core_web_md
 pipenv run python -m spacy link en_core_web_md en
 ```
 
-Then run training using:
+Then run training use:
 
-```
-pipenv run chatbot/cli/train.py
-```
-
-*Note*: Currently training fails the first time it's run, so please run the command above a second time.
+- `pipenv run chatbot/cli/train.py` for running normal training.
+- `pipenv run chatbot/cli/train_online.py` for running interactive training.
 
 Then to start the bot, there is multiple ways:
 
