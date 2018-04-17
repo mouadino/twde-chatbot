@@ -15,4 +15,4 @@ def train_classificator():
     trainer = Trainer(RasaNLUConfig(conf.get_value('nlu-config-file-path')))
     training_data = load_data(conf.get_value('nlu-training-data-path'))
     trainer.train(training_data)
-    trainer.persist(conf.get_value('models-directory'), fixed_model_name=conf.get_value('classificator-model-name'))
+    trainer.persist(conf.get_value('models-directory'), fixed_model_name=conf.get_value('classification-model-name'))
