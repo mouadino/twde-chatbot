@@ -1,0 +1,26 @@
+{
+  "name": "twde-chatbot",
+  "scripts": {
+  },
+  "env": {
+    "MESSENGER_ENDPOINT": {
+      "required": true
+    },
+    "HANGOUTS_API_KEY": {
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
