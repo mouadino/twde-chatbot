@@ -15,3 +15,4 @@ def test_load_config_from_environment_value():
     conf = config.Config()
 
     assert "foobar" == conf.get_value("HANGOUTS_API_KEY")
+    del os.environ['HANGOUTS_API_KEY']
