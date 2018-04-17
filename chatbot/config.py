@@ -2,11 +2,11 @@ import json
 import os
 
 
-def _load(config_file="resources/default.json"):
+def _load(config_file="/resources/default-config.json"):
     if os.getenv("CONFIG_FILE"):
-        return json.load(os.getenv("CONFIG_FILE"))
-    else:
-        return json.load(config_file)
+        config_file = os.getenv("CONFIG_FILE")
+    with open(os.getcwd() + config_file, 'r') as opened_file:
+        return json.load(opened_file)
 
 
 class Config(object):
