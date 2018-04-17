@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-import logging
-
 from rasa_nlu.converters import load_data
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.model import Trainer
 from rasa_core.train import train_dialogue_model
-
-
-logger = logging.getLogger(__name__)
 
 
 def run():
