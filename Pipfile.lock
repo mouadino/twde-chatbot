@@ -90,11 +90,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:14131608ad2fd56836d33a71ee60fa1c82bc9d2c8d98b7bdbc631fe1b3cd1296",
-                "sha256:673c79de9e33392bc95881a3d58488cf44e0509352a299e09bf119e2b09d170a",
-                "sha256:edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+                "sha256:13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7",
+                "sha256:9fa520c1bacfb634fa7af20a76bcbd3d5fb390481724c597da32c719a7dca4b0"
             ],
-            "version": "==2018.1.18"
+            "version": "==2018.4.16"
         },
         "chardet": {
             "hashes": [
@@ -762,10 +761,10 @@
         },
         "python-telegram-bot": {
             "hashes": [
-                "sha256:580390d75a63706647962556bab69c7313bee1438411288c37f545e421498e6c",
-                "sha256:caa89c0eb1e5284ec0d02d6a9a4d6dc1b7db356c16fcde0a4472c4613b742c6e"
+                "sha256:80b1af0173a891a5b2ba654bf0cfe76c5392a1d6d9571c995bd751739d573494",
+                "sha256:81d541113141b9542ed906570e7136b4e4df6a04a3a7ea7fd0b5ec3bda2665e8"
             ],
-            "version": "==10.0.1"
+            "version": "==10.0.2"
         },
         "pytz": {
             "hashes": [
@@ -1144,7 +1143,6 @@
                 "sha256:673c79de9e33392bc95881a3d58488cf44e0509352a299e09bf119e2b09d170a",
                 "sha256:9cdc8ab2cc9c3c2e2727a4b67c22881dbb0e1c503d592992594c5e131c867107"
             ],
-            "markers": "python_version >= '3'",
             "version": "==0.31.0"
         },
         "wrapt": {
