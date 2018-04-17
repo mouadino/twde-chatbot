@@ -7,7 +7,7 @@
       "required": true
     },
     "HANGOUTS_API_KEY": {
-      "generator": "secret"
+      "required": true
     }
   },
   "formation": {
