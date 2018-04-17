@@ -3,7 +3,8 @@ import os
 
 
 def test_load_config_from_file():
-    del os.environ['HANGOUTS_API_KEY']
+    if 'HANGOUTS_API_KEY' in os.environ:
+        del os.environ['HANGOUTS_API_KEY']
     conf = config.Config()
 
     assert "secret-api-key" == conf.get_value("HANGOUTS_API_KEY")
