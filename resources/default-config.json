@@ -1,6 +1,6 @@
 {
-  "HANGOUTS_API_KEY": "secret-api-key",
-  "MESSENGER_ENDPOINT": "endpoint",
+  "hangouts-api-key": "secret-api-key",
+  "messenger-endpoint": "endpoint",
   "classification-model-path": "resources/models/default/current",
   "classification-model-name": "current",
   "dialog-model-path": "resources/models/dialogue",

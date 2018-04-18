@@ -32,9 +32,9 @@ def invalid_request(incoming_request):
 
     event = incoming_request.get_json()
     logger.debug("received %s", event)
-    logger.debug("token %s", conf.get_value("HANGOUTS_API_KEY"))
+    logger.debug("token %s", conf.get_value("hangouts-api-key"))
 
-    if event.get('token') != conf.get_value("HANGOUTS_API_KEY"):
+    if event.get('token') != conf.get_value("hangouts-api-key"):
         response = json.jsonify({'error': "Wrong token"})
         response.status_code = 401
         return response
@@ -44,7 +44,7 @@ def invalid_request(incoming_request):
         return response
 
 
-@app.route("/" + conf.get_value("MESSENGER_ENDPOINT"), methods=['POST'])
+@app.route("/" + conf.get_value("messenger-endpoint"), methods=['POST'])
 def on_event():
     """Handles an event from Hangouts Chat."""
     invalid_request_response = invalid_request(request)

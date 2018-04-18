@@ -2,6 +2,10 @@ import json
 import os
 
 
+def uppercase(string):
+    return string.upper().replace('-', '_')
+
+
 def _load(config_file="/resources/default-config.json"):
     if os.getenv("CONFIG_FILE"):
         config_file = os.getenv("CONFIG_FILE")
@@ -19,7 +23,7 @@ class Config(object):
         self.__dict__ = self._state
 
     def get_value(self, name):
-        if os.getenv(name):
-            return os.getenv(name)
+        if os.getenv(uppercase(name)):
+            return os.getenv(uppercase(name))
         else:
             return self._state[name]
