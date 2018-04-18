@@ -1,22 +1,20 @@
 import logging
+import time
 
 from flask import Flask, request, json, abort
+import redis
+from rq import Queue
+from rq.job import Job
 
-from chatbot import config
-from chatbot.nlu import intent_classificator, dialog
+from chatbot.messenger import middlewares
+from chatbot.nlu import dialog
+from chatbot.config import CONF
 
-logger = logging.getLogger(__name__)
+
 app = Flask(__name__)
-conf = config.Config()
-
-_AGENT = None
-
-
-def get_agent():
-    global _AGENT
-    if not _AGENT:
-        _AGENT = dialog.load_agent(intent_classificator.load_classificator())
-    return _AGENT
+logger = logging.getLogger(__name__)
+qconn = redis.from_url(CONF.get_value('redistogo-url'))
+q = Queue('high', connection=qconn)
 
 
 def format_message(message):
@@ -24,38 +22,32 @@ def format_message(message):
     return json.jsonify({'text': message})
 
 
-def invalid_request(incoming_request):
-    if not incoming_request.get_json():
-        response = json.jsonify({'error': "Bad request"})
-        response.status_code = 400
-        return response
-
-    event = incoming_request.get_json()
-    logger.debug("received %s", event)
-    logger.debug("token %s", conf.get_value("hangouts-api-key"))
-
-    if event.get('token') != conf.get_value("hangouts-api-key"):
-        response = json.jsonify({'error': "Wrong token"})
-        response.status_code = 401
-        return response
-    if not event.get('type') or not event.get('message') or not event.get('space'):
-        response = json.jsonify({'error': "Invalid request, type or message missing"})
-        response.status_code = 400
-        return response
+def _wait_for_response(job):
+    # TODO: Can we do better then polling?
+    while 1:
+        logger.debug("poll worker for response with job_id=%s", job.get_id())
+        job = Job.fetch(job.get_id(), connection=qconn)
+        if job.is_finished:
+            return str(job.result)
+        if job.is_failed:
+            raise Exception("job queue failed with id %s", job.get_id())
+        time.sleep(0.5)
 
 
-@app.route("/" + conf.get_value("messenger-endpoint"), methods=['POST'])
+@app.route("/" + CONF.get_value("messenger-endpoint"), methods=['POST'])
+@middlewares.authenticate
+@middlewares.is_json
 def on_event():
     """Handles an event from Hangouts Chat."""
-    invalid_request_response = invalid_request(request)
-    if invalid_request_response:
-        return invalid_request_response
-
     event = request.get_json()
     if event['type'] == 'ADDED_TO_SPACE' and event['space']['type'] == 'ROOM':
         return format_message('Thanks for adding me to "%s"!' % event['space']['displayName'])
     elif event['type'] == 'MESSAGE':
-        calculated_reply = dialog.handle_message_input(get_agent(), event['message']['text'])
-        return format_message(calculated_reply)
+        job = q.enqueue(
+            dialog.handle_message_input,
+            event['message']['text']
+        )
+        reply = _wait_for_response(job)
+        return format_message(reply)
     else:
         abort(400)

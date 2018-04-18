@@ -13,17 +13,15 @@ def _load(config_file="/resources/default-config.json"):
         return json.load(opened_file)
 
 
-class Config(object):
-    """
-    Borg singleton config object
-    """
-    _state = _load()
-
+class _Config(object):
     def __init__(self):
-        self.__dict__ = self._state
+        self._state = _load()
 
     def get_value(self, name):
         if os.getenv(uppercase(name)):
             return os.getenv(uppercase(name))
         else:
             return self._state[name]
+
+
+CONF = _Config()

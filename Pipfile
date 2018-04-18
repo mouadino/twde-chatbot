@@ -4,13 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-rasa = "*"
 rasa_core = "*"
+rasa_nlu = "<=0.11.4"
 sklearn_crfsuite = "*"
 spacy = "*" 
 Flask = "*"
 gunicorn = "*"
 chatbot = {path = "."}
+rq = "*"
 
 [dev-packages]
 pytest = "*"

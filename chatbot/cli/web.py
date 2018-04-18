@@ -13,8 +13,8 @@ if os.getenv('FLASK_PROFILE'):
 
 
 def run():
-    port = os.environ.get('PORT', 8080)
-    app.run(port=port, debug=True)
+    port = os.getenv('PORT', 8080)
+    app.run(port=port, debug=os.getenv('FLASK_DEBUG') == 'y')
 
 
 if __name__ == '__main__':
