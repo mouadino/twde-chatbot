@@ -12,18 +12,26 @@
 - thanks
 - thank you
 - thanks a lot
+- merci
+- thnx
 
 ## intent:how_are_you
 - how are you?
 - how are you doing?
 - everything ok?
 - how's life?
+- How are you?
+- All good?
 
 ## intent:are_you_a_robot
 - are you a robot?
+- are you human?
+- are you a machine?
 
 ## intent:what_is_your_name
 - what is your name?
+- what's your name?
+- how are you called?
 
 ## intent:skills
 - what can you do?
@@ -53,12 +61,17 @@
 - vacation left?
 
 ## intent:leave_annual_planned
-- could you give me a list of my upcoming vacations?
-- could you give me a list of my planned vacations?
-- could you give me a list of my booked vacations?
 - how much vacation do i have planned?
 - and how much vacation do i have planned already?
 - how much vacation plans have i made?
+- how many leave days do i have planned?
+- how many leaves do i have booked?
+- how many leaves do i have planned?
+
+## intent:leave_annual_planned_list
+- could you give me a list of my upcoming vacations?
+- could you give me a list of my planned vacations?
+- could you give me a list of my booked vacations?
 
 ## intent:leave_annual_cancel
 - i'd like to cancel some vacation
@@ -67,6 +80,13 @@
 - would be great to be able to delete a canceled vacation
 - i'd like to cancel a future vacation
 - i'd like to cancel a holiday i booked
+
+## intent:leave_annual_take
+- i'd like to take some vacation
+- i'd like to apply for leave
+- could i book some vacation?
+- i'd like book some vacation
+- i'd like to take some leave days
 
 ## intent:public_holidays
 - public holidays

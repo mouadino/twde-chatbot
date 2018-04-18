@@ -43,15 +43,21 @@
 * deny  
   - utter_deny
 
-## deny bye
-* deny  
-  - utter_deny
-* deny  
-  - utter_deny_bye
+## leave_annual_planned_list
+* leave_annual_planned_list
+  - utter_leave_annual_planned_list
+  - utter_leave_annual_cancel
+* confirm
 
 ## leave_annual_cancel
 * leave_annual_cancel
   - utter_leave_annual_cancel
+  - utter_leave_annual_planned_list
+  - utter_leave_annual_cancel_expl
+
+## leave_annual_take
+* leave_annual_take
+  - utter_leave_annual_take
 
 ## public_holidays
 * public_holidays
@@ -60,3 +66,9 @@
 ## confirm
 * confirm
   - utter_confirm
+
+## deny bye
+* deny  
+  - utter_deny
+* deny  
+  - utter_deny_bye

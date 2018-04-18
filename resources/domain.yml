@@ -8,7 +8,9 @@ intents:
 - leave_annual_total
 - leave_annual_left
 - leave_annual_planned
+- leave_annual_planned_list
 - leave_annual_cancel
+- leave_annual_take
 - public_holidays
 - confirm
 - deny
@@ -27,6 +29,8 @@ actions:
 - utter_leave_annual_planned
 - utter_leave_annual_planned_list
 - utter_leave_annual_cancel
+- utter_leave_annual_cancel_expl
+- utter_leave_annual_take
 - utter_public_holidays
 - utter_confirm
 - utter_deny
@@ -70,7 +74,11 @@ templates:
       - title: "vacation 2"
         payload: "vacation_2"
   utter_leave_annual_cancel:
-    - text: "Which one would you like to cancel?"
+    - text: "Would you like to cancel one?"
+  utter_leave_annual_cancel_expl:
+    - text: "Just type the order number and I'll cancel it for you."
+  utter_leave_annual_take:
+    - text: "You have 21 days of leave left. When would you like to take your leave?"
   utter_public_holidays:
     - text: "Next public holiday is on may 1"
   utter_confirm:
