@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-rasa = "*"
-rasa_core = "*"
+rasa_nlu = "==0.11.0"
+rasa_core = "==0.8.5"
 sklearn_crfsuite = "*"
 spacy = "*" 
 Flask = "*"
