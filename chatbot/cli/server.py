@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import os
+
 from chatbot.messenger import google_chat_api
 
-# Initialize the agent
-google_chat_api.get_agent()
+
 app = google_chat_api.app
 
 

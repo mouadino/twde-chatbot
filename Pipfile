@@ -10,6 +10,7 @@ sklearn_crfsuite = "*"
 spacy = "*" 
 Flask = "*"
 gunicorn = "*"
+chatbot = {path = "."}
 
 [dev-packages]
 pytest = "*"
