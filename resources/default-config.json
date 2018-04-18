@@ -12,5 +12,6 @@
   "dialog-model-max-history": 2,
   "dialog-model-batch-size": 15,
   "dialog-model-epochs": 100,
-  "dialog-model-max-training-samples": 300
+  "dialog-model-max-training-samples": 300,
+  "backend-api-token": "secret-token"
 }
