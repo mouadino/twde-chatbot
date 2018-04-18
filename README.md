@@ -45,7 +45,7 @@ Then run training use:
 Then to start the bot, there is multiple ways:
 
 - In the console: ```pipenv run chatbot/cli/console.py```
-- As a google chat api: ```pipenv run chatbot/cli/google_chat_api.py```
+- As a google chat api: ```pipenv run chatbot/cli/server.py```
 - As a google chat api using Heroku: ```pipenv run heroku local```
 
 To reduce logging verbosity set the environment variable LOGLEVEL to error, for example:
