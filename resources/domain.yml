@@ -1,5 +1,10 @@
 intents:
 - greet
+- thanks
+- skills
+- how_are_you
+- are_you_a_robot
+- what_is_your_name
 - leave_annual_total
 - leave_annual_left
 - leave_annual_planned
@@ -9,7 +14,14 @@ intents:
 - deny
 
 actions:
+- utter_welcome
+- utter_thanks
+- utter_skills
+- utter_how_are_you
+- utter_are_you_a_robot
+- utter_what_is_your_name
 - utter_greet
+- utter_how_can_i_help
 - utter_leave_annual_total
 - utter_leave_annual_left
 - utter_leave_annual_planned
@@ -18,20 +30,36 @@ actions:
 - utter_public_holidays
 - utter_confirm
 - utter_deny
+- utter_deny_bye
 
 templates:
   utter_welcome:
-    - text: |
-        "Hey there! I'm Balu."
-        "I'm currently getting build to support you to book your annual leave."
-        "My set of skills is still small, but you can already ask me about your total leave days for this year, what leaves you have planned, how many leaves you have already taken and what the next public holidays are."
+    - text: "Hey there! I'm Balu."
   utter_greet:
     - text: "Welcome back! What can I do for you?"
     - text: "Hey there! How can I help you?"
+  utter_thanks:
+    - text: "You are welcome!"
+    - text: "Happily!"
+  utter_how_are_you:
+    - text: "My servers are running, despite that I'm not sure how to answer. You know, I'm nothing but a chatbot. I hope you're good though!"
+    - text: "You know that I'm a chatbot right? Not big on feelings, but my systems are running. And it's spring."
+    - text: "All good. All servers running. What else could I ask for?"
+  utter_are_you_a_robot:
+    - text: "Yep. Definitely."
+    - text: "Am I? Kidding. Yes."
+    - text: "Frankly, I don't think about things like that. Because I am a robot."
+  utter_what_is_your_name:
+    - text: "My name is Balu."
+  utter_skills:
+    - text: "My set of skills is still small, but you can already ask me about your total leave days for this year, what leaves you have planned, how many leaves you have already taken and what the next public holidays are."
+  utter_how_can_i_help:
+    - text: "Let me know how I can help!"
+    - text: "Let me know what I can do for you!"
   utter_leave_annual_total:
     - text: "You have 28 leave days for 2018"
   utter_leave_annual_left:
-    - text: "annual left"
+    - text: "There's a total of 21 days left for this year"
   utter_leave_annual_planned:
     - text: "You have 6 days planned. Would you like to see the list of your upcoming leaves?"
   utter_leave_annual_planned_list:
@@ -42,10 +70,12 @@ templates:
       - title: "vacation 2"
         payload: "vacation_2"
   utter_leave_annual_cancel:
-    - text: "which one would you like to cancel?"
+    - text: "Which one would you like to cancel?"
   utter_public_holidays:
-    - text: "next public holiday is on may 1"
+    - text: "Next public holiday is on may 1"
   utter_confirm:
-    - text: "on it"
+    - text: "On it"
   utter_deny:
     - text: "Alright then. Anything else I can help you with?"
+  utter_deny_bye:
+    - text: "Cool. I hope you have a great day!"
